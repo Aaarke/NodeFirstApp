@@ -1,6 +1,11 @@
 const http= require('http');
 const express= require('express');
 const app =express();
+
+//This is used to set globle variable through out our node application
+app.set('view engine','pug');
+app.set('views','views');
+
 const bodyParser=require('body-parser');
 const adminData= require('./routes/admin');
 const shopRoutes= require('./routes/shop');
@@ -13,7 +18,8 @@ app.use('/admin',adminData.routes);
 app.use(shopRoutes);
 
 app.use((req,res)=>{
-    res.status(404).sendFile(path.join(__dirname,'views','notfound.html'));
+    res.render('notfound');
+    //res.status(404).sendFile(path.join(__dirname,'views','notfound.html'));
 
 });
 

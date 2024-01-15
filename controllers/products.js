@@ -17,7 +17,7 @@ exports.postAddProducts=(req,res,next)=>{
  exports.getProducts=(req,res,next)=>{
     const allProducts=Product.fetchAll();
      //This is provided by express to render
-     res.render('shop',{prods:products,pageTitle:'Shop',path:'/'});
+     res.render('shop',{prods:allProducts,pageTitle:'Shop',path:'/'});
      //res.sendFile(path.join(rootDir,'views','shop.pug'));
  };
 
